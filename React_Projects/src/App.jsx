@@ -1,12 +1,13 @@
 import './App.css'
 import RandomColorGenerator from './Random_Color_Generator/Color_Generator,'
+import StarRating from './Star_Rating/Star_Rating'
 
 function App() {
  
 
   return (
     <>
-    <RandomColorGenerator/>
+    <StarRating noOfStars={10}/>
     </>
   )
 }
