@@ -22,7 +22,7 @@ const StarRatingEx = ({numberOfStars}) => {
     return (
         <div className="star-rating-ex">
             {[...Array(numberOfStars)].map((_, index) => {
-                
+                index += 1;
 
                 return (
                     <div
