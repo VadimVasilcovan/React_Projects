@@ -5,3 +5,13 @@
 .inactive{
     color: #000;
 }
+
+.star-rating-ex{
+    display: flex;
+    flex-direction: row;
+}
+
+.star-rating-img{
+width: 30px;
+object-fit: contain;
+}
