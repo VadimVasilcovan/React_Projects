@@ -5,6 +5,7 @@ import RatingStarex03 from "./Star_Rating/Star-Ratings.0.3";
 import StarRating from "./Star_Rating/Star_Rating";
 import StarRatingEx from "./Star_Rating/Star_Rating.0.2";
 import RatingStarEx04 from "./Star_Rating/Star_Rating.0.4";
+import ImportMoreItems from "./load_more_items/load_more_items";
 
 function App() {
   return (
@@ -16,7 +17,10 @@ function App() {
         page={"10"}
       />*/} 
 
-      <RatingStarEx04 numberOfStars={8}/>
+      {/*<RatingStarEx04 numberOfStars={8}/>*/}
+      
+      {/*Load more products components*/}
+      <ImportMoreItems/>
     </>
   );
 }
