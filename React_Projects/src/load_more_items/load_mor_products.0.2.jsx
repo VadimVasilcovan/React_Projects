@@ -37,7 +37,26 @@ const LoadMoreProducts = () => {
   },[products]);
 
 
-  return <></>;
+  return <>(
+    <div className="load-more-container">
+        <div className="product-container">
+    {products && products.length ? products.map((item) => (
+        <div className="product-div" key={item.id}>
+            <img src={item.thumbnail} alt={item.title}/>
+            <p>{item.title}</p>
+        </div>
+    )) : null} 
+        </div>
+        <div className="buton-container">
+        <button disabled={disableButton} onClick={() => setCount(count + 1)}>
+            Load More Products
+        </button>
+        {
+            disableButton ? <p>You have reached to 100 product</p> : null
+        }
+        </div>
+    </div>
+  )</>;
 };
 
 export default LoadMoreProducts;
