@@ -35,7 +35,9 @@ const LoadMoreProducts = () => {
   useEffect(() => {
     if (products && products.length === 100)setDisableButton(true);
   },[products]);
-
+  if (loading){
+    return <div>Loading data ! please wait.</div>
+  }
 
   return <>(
     <div className="load-more-container">
