@@ -27,13 +27,15 @@ const LoadMoreProducts = () => {
     }
   }
 
+
   useEffect(() => {
+
     fetchProducts();
   }, [count]);
 
   useEffect(() => {
     if (products && products.length === 100) setDisableButton(true);
-  }, [products]);
+  }, [products] );
   if (loading) {
     return <div>Loading data ! please wait.</div>;
   }
@@ -43,6 +45,7 @@ const LoadMoreProducts = () => {
       (
       <div className="load-more-container">
         <div className="product-container">
+
           {products && products.length
             ? products.map((item) => (
                 <div className="product-div" key={item.id}>
@@ -56,6 +59,7 @@ const LoadMoreProducts = () => {
           <button disabled={disableButton} onClick={() => setCount(count + 1)}>
             Load More Products
           </button>
+          
           {disableButton ? <p>You have reached to 100 product</p> : null}
         </div>
       </div>
