@@ -1,12 +1,16 @@
+import MenuList from "./menu-list"
 
 
-const MenuItem = () => {
+const MenuItem = ({item}) => {
 
-    return (<div>
+    return (<li>
+        <p>{item.lable}</p>
         {
-
+            item && item.children && item.children.length > 0 ? 
+            <MenuList list={item.children}/>
+            : null
         }
-    </div>)
+    </li>)
 }
 
 export default  MenuItem
