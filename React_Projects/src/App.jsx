@@ -11,29 +11,28 @@ import menus from "./Tree-view/data";
 import MasteringMapMethod from "./mastering-map/mastering-map-01";
 import data from "./mastering-map/data.jsx";
 import MasteringMap03 from "./mastering-map/masternig-map-03.jsx";
-
+import UpdaterFunction from "./mastering-updater-function/updater-function.jsx";
 
 function App() {
   return (
     <>
       {/*<RatingStarex03 numberOfStars={3}/>*/}
-    {/* <ImageSlider
+      {/* <ImageSlider
         url={"https://picsum.photos/v2/list"}
         limit={"10"}
         page={"10"}
-      />*/} 
+      />*/}
 
       {/*<RatingStarEx04 numberOfStars={8}/>*/}
-      
+
       {/*Load more products components*/}
-        {/*<ImportMoreItems/>*/}
+      {/*<ImportMoreItems/>*/}
 
+      {/*Tree view compinent*/}
+      {/*<TreeView menus={menus}/>*/}
 
-          {/*Tree view compinent*/}
-          {/*<TreeView menus={menus}/>*/}
-
-          <MasteringMap03 data={data}/>
-          
+      {/*<MasteringMap03 data={data}/>*/}
+      <UpdaterFunction/>
     </>
   );
 }
