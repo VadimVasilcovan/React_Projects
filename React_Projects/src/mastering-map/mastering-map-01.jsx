@@ -1,8 +1,13 @@
+import data from "./data.jsx";
 
 
 const MasteringMapMethod = () => {
 
-    return()
+const cars = data();
+    
+    return(<>
+    {cars.map((car) => <div key={car.id}><p>{car.brand}</p></div>) }
+    </>)
 }
 
-export default MasteringMapMethod
+export default MasteringMapMethod;

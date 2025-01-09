@@ -8,6 +8,8 @@ import RatingStarEx04 from "./Star_Rating/Star_Rating.0.4";
 import TreeView from "./Tree-view/tree-view";
 import ImportMoreItems from "./load_more_items/load_more_items";
 import menus from "./Tree-view/data";
+import MasteringMapMethod from "./mastering-map/mastering-map-01";
+import data from "./mastering-map/data.jsx";
 
 
 function App() {
@@ -27,7 +29,10 @@ function App() {
 
 
           {/*Tree view compinent*/}
-          <TreeView menus={menus}/>
+          {/*<TreeView menus={menus}/>*/}
+
+          <MasteringMapMethod data={data}/>
+          
     </>
   );
 }
