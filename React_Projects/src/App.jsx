@@ -10,6 +10,7 @@ import ImportMoreItems from "./load_more_items/load_more_items";
 import menus from "./Tree-view/data";
 import MasteringMapMethod from "./mastering-map/mastering-map-01";
 import data from "./mastering-map/data.jsx";
+import MasteringMap03 from "./mastering-map/masternig-map-03.jsx";
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
           {/*Tree view compinent*/}
           {/*<TreeView menus={menus}/>*/}
 
-          <MasteringMapMethod data={data}/>
+          <MasteringMap03 data={data}/>
           
     </>
   );
