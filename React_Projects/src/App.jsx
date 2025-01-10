@@ -12,6 +12,7 @@ import MasteringMapMethod from "./mastering-map/mastering-map-01";
 import data from "./mastering-map/data.jsx";
 import MasteringMap03 from "./mastering-map/masternig-map-03.jsx";
 import UpdaterFunction from "./mastering-updater-function/updater-function.jsx";
+import SpreadOperaotr from "./mastering-updater-function/mastering-spread-operator/spread-operaotr-0.1.jsx";
 
 function App() {
   return (
@@ -32,7 +33,10 @@ function App() {
       {/*<TreeView menus={menus}/>*/}
 
       {/*<MasteringMap03 data={data}/>*/}
-      <UpdaterFunction/>
+      {/*<UpdaterFunction/>*/}
+
+
+      <SpreadOperaotr/>
     </>
   );
 }
