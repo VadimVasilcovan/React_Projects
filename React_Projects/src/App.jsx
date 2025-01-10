@@ -13,6 +13,8 @@ import data from "./mastering-map/data.jsx";
 import MasteringMap03 from "./mastering-map/masternig-map-03.jsx";
 import UpdaterFunction from "./mastering-updater-function/updater-function.jsx";
 import SpreadOperaotr from "./mastering-updater-function/mastering-spread-operator/spread-operaotr-0.1.jsx";
+import LoadData from "./load_more_items/load-mor-data.jsx";
+import GetData from "./load_more_items/load-mor-data.jsx";
 
 function App() {
   return (
@@ -36,7 +38,7 @@ function App() {
       {/*<UpdaterFunction/>*/}
 
 
-      <SpreadOperaotr/>
+     <GetData/>
     </>
   );
 }

@@ -18,6 +18,8 @@ const LoadMoreProducts = () => {
       const result = await response.json();
       if (result && result.products && result.products.length) {
         setProducts((PrevData) => [...PrevData, result.products]);
+        //This ensures that you're working with the latest state,
+        //especially in situations where state updates may be asynchronous.
         setLoading(false);
       }
       console.log(result);

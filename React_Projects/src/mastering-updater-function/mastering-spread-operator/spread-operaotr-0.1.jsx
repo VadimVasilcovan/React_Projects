@@ -16,11 +16,10 @@ const SpreadOperaotr = () => {
   let food = [...fruits, ...vegetables, "strowbery"];
 
   console.log([...food, "tomatoes"]);
-  return <></>;
-};
 
-export default SpreadOperaotr;
 
+
+  
 //Combine object
 
 const person = { age: 25, name: "Doe" };
@@ -50,3 +49,16 @@ const car = [
 ];
 
 console.log(...car);
+
+  return <>
+  {car.map((cars) => <div key={cars.id}><p>{cars.brand}</p></div>)}
+  </>;
+};
+
+
+
+export default SpreadOperaotr;
+
+
+
+
