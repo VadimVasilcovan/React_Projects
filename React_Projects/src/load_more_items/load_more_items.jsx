@@ -1,9 +1,6 @@
-import { useState, useEffect } from "react";
-import "../load_more_items/load_more_items.css";
-
 const ImportMoreItems = () => {
   const [loading, setLoading] = useState(false);
-  const [products, setProducts] = useState([]);
+  const [fetchedProducts, setFetchedProducts] = useState([]);
   const [count, setCount] = useState(0);
   const [disableButton, setDisableButton] = useState(false);
 
@@ -18,7 +15,7 @@ const ImportMoreItems = () => {
 
       const result = await response.json();
       if (result && result.products && result.products.length) {
-        setProducts((prevData) => [...prevData, ...result.products]);
+        setFetchedProducts((prevData) => [...prevData, ...result.products]);
         setLoading(false);
       }
       console.log(result);
@@ -31,21 +28,22 @@ const ImportMoreItems = () => {
   useEffect(() => {
     fetchProducts();
   }, [count]);
-  
+
   useEffect(() => {
     setDisableButton(() => {
-      if (products && products.length === 100) setDisableButton(true);
+      if (fetchedProducts && fetchedProducts.length === 100) setDisableButton(true);
     });
-  }, [products]);
+  }, [fetchedProducts]);
 
   if (loading) {
-    return <div>Loading data ! please wait.</div>;
+    return <div>Loading data! Please wait.</div>;
   }
+
   return (
     <div className="loda-more-container">
       <div className="product-container">
-        {products && products.length
-          ? products.map((item) => (
+        {fetchedProducts && fetchedProducts.length
+          ? fetchedProducts.map((item) => (
               <div className="product-div" key={item.id}>
                 <img src={item.thumbnail} alt={item.title} />
                 <p>{item.title}</p>
@@ -57,9 +55,7 @@ const ImportMoreItems = () => {
         <button disabled={disableButton} onClick={() => setCount(count + 1)}>
           Load More Products
         </button>
-        {
-            disableButton ? <p>You have reached to 100 product</p> : null 
-        }
+        {disableButton ? <p>You have reached 100 products</p> : null}
       </div>
     </div>
   );
