@@ -3,6 +3,12 @@
 //                                  Used with multiple state updates and asynchronous functions
 //                                  Good practice to use updater functions
 
+
+
+//When to use the Updater Function ((prevState) => newState)
+//1. When the state update depends on the previous state:
+
+
 import { useState } from "react"
 
 
