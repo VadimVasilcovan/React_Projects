@@ -15,6 +15,7 @@ import UpdaterFunction from "./mastering-updater-function/updater-function.jsx";
 import SpreadOperaotr from "./mastering-updater-function/mastering-spread-operator/spread-operaotr-0.1.jsx";
 import LoadData from "./load_more_items/load-mor-data.jsx";
 import GetData from "./load_more_items/load-mor-data.jsx";
+import LoadData01 from "./load_more_items/load-more-data.0.1.jsx";
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
       {/*<UpdaterFunction/>*/}
 
 
-     <GetData/>
+     <LoadData01/>
     </>
   );
 }
