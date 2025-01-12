@@ -19,8 +19,8 @@ const LoadMoreProducts = () => {
             );
         
         const result = await response.json();
-        if (result && result.setProducts && result.products.length){
-            setProducts(((p) => [...p, result.products]));
+        if (result &&  result.length){
+            setProducts(((p) => [...p, ...result]));
         }
         console.log(result)
         }catch(e){
