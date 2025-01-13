@@ -10,7 +10,14 @@ const ModalTest = () => {
   return (
     <div>
       <button onClick={handleToggleModalPopup}>Open Model Popup</button>
-      {showModalPopup && <Modal/>}
+      {/*If the left-hand side is false, the whole expression is false,
+       and the right-hand side is ignored.*/}
+      {showModalPopup && <Modal />}
+
+      {/*
+      Alternative
+      {showModalPopup ? <Modal /> : null}
+      */}
     </div>
   );
 };
