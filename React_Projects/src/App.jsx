@@ -16,6 +16,7 @@ import SpreadOperaotr from "./mastering-updater-function/mastering-spread-operat
 import LoadData from "./load_more_items/load-mor-data.jsx";
 import GetData from "./load_more_items/load-mor-data.jsx";
 import LoadData01 from "./load_more_items/load-more-data.0.1.jsx";
+import LoadMoreCripto from "./load_more_items/Load_more.jsx";
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
       {/*<UpdaterFunction/>*/}
 
 
-     <LoadData01/>
+     <LoadMoreCripto/>
     </>
   );
 }

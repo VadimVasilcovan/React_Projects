@@ -8,8 +8,8 @@ const GetData = () => {
     try {
       const response = await fetch(
         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=${
-          count === 0 ? 0 : count * 20
-        }&sparkline=false`
+          (count === 0 ? 0 : count * 20)
+        }`
       );
       const result = await response.json();
       if (result && result.length) {
