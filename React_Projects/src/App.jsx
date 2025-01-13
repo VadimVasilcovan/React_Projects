@@ -17,6 +17,7 @@ import LoadData from "./load_more_items/load-mor-data.jsx";
 import GetData from "./load_more_items/load-mor-data.jsx";
 import LoadData01 from "./load_more_items/load-more-data.0.1.jsx";
 import LoadMoreCripto from "./load_more_items/Load_more.jsx";
+import ModalTest from "./custom-modal-popup/modal-test.jsx";
 
 function App() {
   return (
@@ -40,7 +41,8 @@ function App() {
       {/*<UpdaterFunction/>*/}
 
 
-     <LoadMoreCripto/>
+     {/*<LoadMoreCripto/>*/}
+     <ModalTest/>
     </>
   );
 }
