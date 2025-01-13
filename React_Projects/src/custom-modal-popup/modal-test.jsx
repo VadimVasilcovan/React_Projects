@@ -7,12 +7,18 @@ const ModalTest = () => {
   const handleToggleModalPopup = () => {
     setShowModalPopup(!showModalPopup);
   };
+
+  const onClose = () => {
+    setShowModalPopup(false);
+  };
   return (
     <div>
       <button onClick={handleToggleModalPopup}>Open Model Popup</button>
       {/*If the left-hand side is false, the whole expression is false,
        and the right-hand side is ignored.*/}
-      {showModalPopup && <Modal />}
+      {showModalPopup && (
+        <Modal onClose={onClose} body={<div>Custumized body</div>} />
+      )}
 
       {/*
       Alternative
