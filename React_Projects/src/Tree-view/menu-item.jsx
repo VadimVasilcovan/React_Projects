@@ -15,12 +15,15 @@ const MenuItem = ({ item }) => {
       <div>
         <p>{item.label}</p>
         {item && item.children && item.children.length ? (
-          <span onClick={() => handleToggleChildren(item.label)}>{
-            displayCurrentChildren[item.label] ? '-' : '+'
-          }</span>
+          <span onClick={() => handleToggleChildren(item.label)}>
+            {displayCurrentChildren[item.label] ? "-" : "+"}
+          </span>
         ) : null}
       </div>
-      {item && item.children && item.children.length > 0 && displayCurrentChildren[item.label]? (
+      {item &&
+      item.children &&
+      item.children.length > 0 &&
+      displayCurrentChildren[item.label] ? (
         <MenuList list={item.children} />
       ) : null}
     </li>

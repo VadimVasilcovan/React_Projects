@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CitySearch from "./cityes-search";
 
 const WeatherApp = () => {
   const [data, setData] = useState([]);
@@ -6,7 +7,7 @@ const WeatherApp = () => {
   async function FetchWeatherData() {
     try {
       const getData = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${param}&appid=e34b4c51d8c2b7bf48d5217fe52ff79e`
+        `https://api.open-meteo.com/v1/forecast?latitude=${cityes.latitude}&longitude=${cityes.longitude}&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m`
       );
       const result = await getData.json();
       if (result && result.length) {
@@ -21,7 +22,9 @@ const WeatherApp = () => {
     FetchWeatherData();
   }, []);
 
-  return <div></div>;
+  return <div>
+    <CitySearch/>
+  </div>;
 };
 
 export default WeatherApp;
