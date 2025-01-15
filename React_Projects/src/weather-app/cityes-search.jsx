@@ -1,46 +1,34 @@
-import { useState } from "react"
-import cityesCoordinates from "./cityes-coordinates.jsx"
+import { useState } from "react";
+import cityesCoordinates from "./cityes-coordinates.jsx";
 
 const CitySearch = () => {
-const [cityName, setCityname] =useState('')
-const [selectCity, setSelectCity] =useState ([])
+  const [search, setSearch] = useState("");
+  const [filteredCities, setFilteredCities] = useState([]);
 
+  const writeCityName = (event) => {
+    setSearch(event.target.value);
+  };
 
+ 
+ const handleSearch = () => {
+    const results = cityesCoordinates.filter((city) =>
+      city.cityName.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredCities(results);
+ }
+  
 
-const writeCityName = (event) =>{
-setCityname(event.target.value);
+  
+  return (
+    <div>
+      <input type="text" onChange={writeCityName} />
+      <button onClick={handleSearch}>Search</button>
 
-}
-
-
-const selectCityFun =  () => {
-    setSelectCity([...selectCity, cityName])
-    setCityname("");
-}
-
-
-const findCity = cityesCoordinates.filter((city) => 
-    !selectCity.length || selectCity.includes(city.cityName)
+      {filteredCities.map((city, index) => (
+        <p key={index}>{city.cityName}:{city.latitude}/{city.longitude}</p>
+      ))}
+    </div>
   );
-    
+};
 
-
-
-
-    return (<div>
-            <input
-            type="text"
-            onChange={writeCityName}
-            />
-
-            <button onClick={findCity}>Search</button>
-
-            {findCity.map(city,index =( <p key={index}>{city.cityName}</p>))}
-
-            
-
-     
-    </div>)
-}
-
-export default CitySearch
+export default CitySearch;
