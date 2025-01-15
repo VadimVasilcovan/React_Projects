@@ -1,4 +1,5 @@
 import { useState } from "react"
+import cityesCoordinates from "./cityes-coordinates.jsx"
 
 const CitySearch = () => {
 const [cityName, setCityname] =useState('')
@@ -18,6 +19,12 @@ const selectCityFun =  () => {
 }
 
 
+const findCity = cityesCoordinates.filter((city) => 
+    !selectCity.length || selectCity.includes(city.cityName)
+  );
+    
+
+
 
 
     return (<div>
@@ -26,11 +33,13 @@ const selectCityFun =  () => {
             onChange={writeCityName}
             />
 
-            <button onClick={selectCityFun}>Search</button>
+            <button onClick={findCity}>Search</button>
 
-            {selectCity.map((city, index) => (
-        <p key={index}>{city}</p>
-      ))}
+            {findCity.map(city,index =( <p key={index}>{city.cityName}</p>))}
+
+            
+
+     
     </div>)
 }
 
