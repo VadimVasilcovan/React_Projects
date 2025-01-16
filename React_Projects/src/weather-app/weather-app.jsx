@@ -22,10 +22,11 @@ const WeatherApp = () => {
     FetchWeatherData();
   }, [CitySearch]);
 
-  return <div>
-    
-    <CitySearch/>
-  </div>;
+  return (
+    <div>
+      <CitySearch />
+    </div>
+  );
 };
 
 export default WeatherApp;
