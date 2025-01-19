@@ -2,29 +2,40 @@ import { useEffect, useState } from "react";
 import CitySearch from "./cityes-search";
 
 const WeatherApp = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
 
   async function FetchWeatherData() {
     try {
-      const getData = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${city.latitude}&longitude=${city.longitude}&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m`
+      const response = await fetch(
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m`
       );
-      const result = await getData.json();
-      if (result && result.length) {
-        setData(result);
-      }
-    } catch (e) {
-      console.log(e);
+      const result = await response.json();
+      setData(result);
+    } catch (error) {
+      console.error(error);
     }
   }
 
   useEffect(() => {
     FetchWeatherData();
-  }, [CitySearch]);
+  }, [latitude, longitude]);
+
+  const handleCitySelect = (city) => {
+    setLatitude(city.latitude);
+    setLongitude(city.longitude);
+  };
 
   return (
     <div>
-      <CitySearch />
+      <CitySearch onCitySelect={handleCitySelect} />
+      {data && data.current_weather && (
+        <div>
+          <p>Temperature: {data.current_weather.temperature}°C</p>
+          <p>Wind Speed: {data.current_weather.windspeed} km/h</p>
+        </div>
+      )}
     </div>
   );
 };

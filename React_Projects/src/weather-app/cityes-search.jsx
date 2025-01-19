@@ -1,7 +1,7 @@
 import { useState } from "react";
-import cityesCoordinates from "./cityes-coordinates.jsx";
+import cityesCoordinates from "./cityes-coordinates";
 
-const CitySearch = () => {
+const CitySearch = ({ onCitySelect }) => {
   const [search, setSearch] = useState("");
   const [filteredCities, setFilteredCities] = useState([]);
 
@@ -22,8 +22,8 @@ const CitySearch = () => {
       <button onClick={handleSearch}>Search</button>
 
       {filteredCities.map((city, index) => (
-        <p key={index}>
-          {city.cityName}:{city.latitude}/{city.longitude}
+        <p key={index} onClick={() => onCitySelect(city)}>
+          {city.cityName}: {city.latitude}/{city.longitude}
         </p>
       ))}
     </div>
