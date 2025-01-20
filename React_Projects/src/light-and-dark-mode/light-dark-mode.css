@@ -1,0 +1,23 @@
+.light {
+    background-color: white;
+}
+
+.dark{
+    background-color: black;
+}
+
+
+.button-light{
+
+    color: white;
+    background-color: black;
+}
+
+.p-light{
+    color: black;
+}
+
+
+.p-dark{
+    color: white;
+}

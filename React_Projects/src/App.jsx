@@ -20,6 +20,7 @@ import LoadMoreCripto from "./load_more_items/Load_more.jsx";
 import ModalTest from "./custom-modal-popup/modal-test.jsx";
 import WeatherApp from "./weather-app/weather-app.jsx";
 import ScrollTopBottom from "./scroll-to-top-and-bottom/scroll-top-bottom.jsx";
+import LightAndDarkMode from "./light-and-dark-mode/light-dark-mode.jsx";
 
 function App() {
   return (
@@ -45,7 +46,9 @@ function App() {
 
      {/*<LoadMoreCripto/>*/}
     {/*<WeatherApp/>*/}
-   <ScrollTopBottom/>
+   
+
+   <LightAndDarkMode/>
     </>
   );
 }
