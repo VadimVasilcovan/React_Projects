@@ -1,4 +1,5 @@
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
 import ImageSlider from "./Image-Slider/Image-slider";
 import RandomColorGenerator from "./Random_Color_Generator/Color_Generator,";
 import RatingStarex03 from "./Star_Rating/Star-Ratings.0.3";
@@ -21,10 +22,24 @@ import ModalTest from "./custom-modal-popup/modal-test.jsx";
 import WeatherApp from "./weather-app/weather-app.jsx";
 import ScrollTopBottom from "./scroll-to-top-and-bottom/scroll-top-bottom.jsx";
 import LightAndDarkMode from "./light-and-dark-mode/light-dark-mode.jsx";
-
+import { Suspense } from "react";
+import HomePage from './food-recipe-app/home/recipe-app-home.jsx'
+import Navbar from "./food-recipe-app/components/navbar-folder/navbar.jsx";
+import FavoritesPage from "./food-recipe-app/favorites/recipe-app-favorites.jsx";
+import DetailsPage from "./food-recipe-app/details/recipe-app-details.jsx";
+import { lazy } from "react";
 function App() {
+  // Lazy load components
+  const Home = lazy(() => import("./food-recipe-app/home/recipe-app-home.jsx"));
+  const Details = lazy(() =>
+    import("./food-recipe-app/details/recipe-app-details.jsx")
+  );
+  const Favorites = lazy(() =>
+    import("./food-recipe-app/favorites/recipe-app-favorites.jsx")
+  );
   return (
-    <>
+    <div>
+      <div className="'min-h-screen p-6 bg-white text-gray-600 text-lg"></div>
       {/*<RatingStarex03 numberOfStars={3}/>*/}
       {/* <ImageSlider
         url={"https://picsum.photos/v2/list"}
@@ -43,13 +58,19 @@ function App() {
       {/*<MasteringMap03 data={data}/>*/}
       {/*<UpdaterFunction/>*/}
 
+      {/*<LoadMoreCripto/>*/}
 
-     {/*<LoadMoreCripto/>*/}
-    {/*<WeatherApp/>*/}
-   
 
-  
-    </>
+      <Navbar />
+
+      <Suspense  fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/Favorites" element={<Favorites/>} />
+          <Route path="/recipe-item/:id" element={<Details/>} />
+        </Routes>
+      </Suspense>
+    </div>
   );
 }
 
