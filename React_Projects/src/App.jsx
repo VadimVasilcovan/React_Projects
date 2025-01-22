@@ -23,7 +23,7 @@ import WeatherApp from "./weather-app/weather-app.jsx";
 import ScrollTopBottom from "./scroll-to-top-and-bottom/scroll-top-bottom.jsx";
 import LightAndDarkMode from "./light-and-dark-mode/light-dark-mode.jsx";
 import { Suspense } from "react";
-import HomePage from './food-recipe-app/home/recipe-app-home.jsx'
+import HomePage from "./food-recipe-app/home/recipe-app-home.jsx";
 import Navbar from "./food-recipe-app/components/navbar-folder/navbar.jsx";
 import FavoritesPage from "./food-recipe-app/favorites/recipe-app-favorites.jsx";
 import DetailsPage from "./food-recipe-app/details/recipe-app-details.jsx";
@@ -60,14 +60,12 @@ function App() {
 
       {/*<LoadMoreCripto/>*/}
 
-
       <Navbar />
-
-      <Suspense  fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/Favorites" element={<Favorites/>} />
-          <Route path="/recipe-item/:id" element={<Details/>} />
+          <Route path="/" element={<Home />} />
+          <Route path="/Favorites" element={<Favorites />} />
+          <Route path="/recipe-item/:id" element={<Details />} />
         </Routes>
       </Suspense>
     </div>
