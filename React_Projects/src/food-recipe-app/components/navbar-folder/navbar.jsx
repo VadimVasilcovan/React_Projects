@@ -7,9 +7,10 @@ import { GlobalContext } from "../../context/context";
     Two folders up: import('../../Home')*/
 
 export default function Navbar() {
-  const { searchParam, setSearchParam, handleSubmit } = useContext(GlobalContext);
+  const { searchParam, setSearchParam, handleSubmit } =
+    useContext(GlobalContext);
 
-  console.log(searchParam)
+  console.log(searchParam);
   return (
     <nav>
       <h2>FoodReceipe</h2>
