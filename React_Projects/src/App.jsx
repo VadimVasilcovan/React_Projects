@@ -28,6 +28,7 @@ import Navbar from "./food-recipe-app/components/navbar-folder/navbar.jsx";
 import FavoritesPage from "./food-recipe-app/favorites/recipe-app-favorites.jsx";
 import DetailsPage from "./food-recipe-app/details/recipe-app-details.jsx";
 import { lazy } from "react";
+import ChangeItemLocation from "./ad-item-to-another-location/index.jsx";
 function App() {
   // Lazy load components
   const Home = lazy(() => import("./food-recipe-app/home/recipe-app-home.jsx"));
@@ -60,14 +61,18 @@ function App() {
 
       {/*<LoadMoreCripto/>*/}
 
-      <Navbar />
+   
+
+      {/*   <Navbar />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Favorites" element={<Favorites />} />
           <Route path="/recipe-item/:id" element={<Details />} />
         </Routes>
-      </Suspense>
+      </Suspense>*/}
+
+      <ChangeItemLocation/>
     </div>
   );
 }

@@ -6,7 +6,7 @@ export default function GlobalState({ children }) {
   const [searchParam, setSearchParam] = useState("");
   const [loading, setLoading] = useState(false);
   const [recipeList, setRecipeList] = useState([]);
-  const [recipeDetailsData, setRecipeDetailsData] = useState(null)
+  const [recipeDetailsData, setRecipeDetailsData] = useState(null);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -31,7 +31,15 @@ export default function GlobalState({ children }) {
 
   return (
     <GlobalContext.Provider
-      value={{ searchParam, setSearchParam, handleSubmit, recipeList, loading, recipeDetailsData, setRecipeDetailsData }}
+      value={{
+        searchParam,
+        setSearchParam,
+        handleSubmit,
+        recipeList,
+        loading,
+        recipeDetailsData,
+        setRecipeDetailsData,
+      }}
     >
       {children}
     </GlobalContext.Provider>

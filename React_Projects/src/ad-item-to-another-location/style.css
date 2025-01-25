@@ -1,0 +1,14 @@
+
+.main-ChangeItemLocation-div{
+display: flex;
+justify-content: space-between;
+flex-direction: row;
+}
+
+
+.information-div{
+    border: solid;
+    background-color: aliceblue;
+    width: 45rem;
+    border-radius: 0.5rem;
+}
