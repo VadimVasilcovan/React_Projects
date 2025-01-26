@@ -5,6 +5,7 @@ export default function ChangeLocation() {
   const [addToFavorite, setAddToFavorite] = useState([]);
   const [removeFavorites, setRemoveFavorites] = useState(false);
 
+
   async function FetchData() {
     try {
       const data = await fetch(
@@ -21,23 +22,28 @@ export default function ChangeLocation() {
     FetchData();
   }, []);
 
+ 
   const AddToFavoriteFun = (FavoriteItem) => {
-    let copyFvorite = [...addToFavorite];
-    copyFvorite.push(FavoriteItem);
-    setAddToFavorite(copyFvorite);
-  };
-
-  const HandlingFavoriteState = () => {
-    if (setRemoveFavorites !== removeFavorites) {
-      setRemoveFavorites(true);
+    
+    if (!addToFavorite.some((item) => item.title === FavoriteItem.title)) {
+      setAddToFavorite((prevFavorites) => [...prevFavorites, FavoriteItem]);
     }
   };
 
-  useEffect(() => {
-    HandlingFavoriteState();
-  }, [AddToFavoriteFun]);
+  
+  const RemoveFromFavoritesFun = (FavoriteItem) => {
+    setAddToFavorite((prevFavorites) =>
+      prevFavorites.filter((item) => item.title !== FavoriteItem.title)
+    );
+  };
 
-  const activateDeleteButton = removeFavorites ? "Delete from favorite" : null;
+ 
+  const toggleFavoriteState = (item) => {
+    if (addToFavorite.some((favItem) => favItem.title === item.title)) {
+      return "Delete from favorite";
+    }
+    return "Add to favorite";
+  };
 
   return (
     <div className="main-ChangeItemLocation-div">
@@ -46,17 +52,18 @@ export default function ChangeLocation() {
           <ul key={index}>
             <li>{recipes.title}</li>
             <button onClick={() => AddToFavoriteFun(recipes)}>
-              Add to favorite
+              {toggleFavoriteState(recipes)}
             </button>
           </ul>
         ))}
       </div>
       <div className="information-div">
+        <h3>Favorite Recipes</h3>
         {addToFavorite.map((recipes, index) => (
           <ul key={index}>
             <li>{recipes.title}</li>
-            <button onClick={() => AddToFavoriteFun(recipes)}>
-              {activateDeleteButton}
+            <button onClick={() => RemoveFromFavoritesFun(recipes)}>
+              Delete from favorite
             </button>
           </ul>
         ))}
