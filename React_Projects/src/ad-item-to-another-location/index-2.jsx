@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function DataLocationChange() {
   const [apiResponse, setApiResonse] = useState([]);
+  const [addToFavorite, SetAddToFavorite] = useState([]);
   async function fetchData() {
     try {
       const data = await fetch(
@@ -17,16 +18,30 @@ export default function DataLocationChange() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const addToFavoriteFun = (AddValue) => {
+    let copyFavoriteList = [...addToFavorite];
+    copyFavoriteList.push(AddValue);
+    SetAddToFavorite(copyFavoriteList);
+  };
   return (
     <div className="main-ChangeItemLocation-div">
       <div className="information-div">
         {apiResponse.map((recipe, index) => (
           <ul key={index}>
             <li>{recipe.title}</li>
+            <button onClick={() => addToFavoriteFun(recipe)}>Add</button>
           </ul>
         ))}
       </div>
-      <div className="information-div"></div>
+      <div className="information-div">
+        {addToFavorite.map((recipe, index) => (
+          <ul key={index}>
+            <li>{recipe.title}</li>
+            <button onClick={() => addToFavoriteFun(recipe)}>Delete</button>
+          </ul>
+        ))}
+      </div>
     </div>
   );
 }
