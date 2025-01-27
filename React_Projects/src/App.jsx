@@ -30,6 +30,7 @@ import DetailsPage from "./food-recipe-app/details/recipe-app-details.jsx";
 import { lazy } from "react";
 import ChangeItemLocation from "./ad-item-to-another-location/index.jsx";
 import ChangeLocation from "./ad-item-to-another-location/index-1.jsx";
+import DataLocationChange from "./ad-item-to-another-location/index-2.jsx";
 function App() {
   // Lazy load components
   const Home = lazy(() => import("./food-recipe-app/home/recipe-app-home.jsx"));
@@ -73,7 +74,7 @@ function App() {
         </Routes>
       </Suspense>*/}
 
-     <ChangeLocation/>
+     <DataLocationChange/>
     </div>
   );
 }
