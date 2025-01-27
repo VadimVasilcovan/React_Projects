@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 export default function ChangeLocation() {
   const [apiData, setApiData] = useState([]);
   const [addToFavorite, setAddToFavorite] = useState([]);
-  const [removeFavorites, setRemoveFavorites] = useState(false);
+  
 
 
   async function FetchData() {
